@@ -7,6 +7,7 @@ import { PipesComponent } from './component/pipes/pipes.component';
 import { FormValidationComponent } from './component/form-validation/form-validation.component';
 import { ReactiveFormComponent } from './component/reactive-form/reactive-form.component';
 import { HomeComponent } from './component/home/home.component';
+import { GetApiComponent } from './component/get-api/get-api.component';
 
 export const routes: Routes = [
     { path: 'data-bind', component: DataBindingComponent },
@@ -16,5 +17,6 @@ export const routes: Routes = [
     { path: 'pipes', component: PipesComponent },
     { path: 'form', component: FormValidationComponent },
     { path: 'react', component: ReactiveFormComponent },
-    { path: 'home', component: HomeComponent }
+    { path: 'home', component: HomeComponent },
+    { path: 'getapi', component: GetApiComponent }
 ];
