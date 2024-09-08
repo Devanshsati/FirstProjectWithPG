@@ -1,0 +1,66 @@
+<h1 class="bg-warning p-3 text-center">Pipes works!</h1>
+
+<div class="row m-3">
+    <div class="col">
+        Orignal Value : {{fname}}
+        <br>
+        After Pipe : {{fname | uppercase}}
+    </div>
+    <div class="col">
+        Orignal Value : {{currDate}}
+        <br>
+        After Pipe : {{currDate | date}}
+    </div>
+    <div class="col">
+        Orignal Value : {{currDate}}
+        <br>
+        After Pipe : {{currDate | date: 'dd-mm-yy'}}
+    </div>
+    <div class="col">
+        Orignal Value : {{currDate}}
+        <br>
+        After Pipe : {{currDate | date: 'dd-MMM-Y'}}
+    </div>
+</div>
+<hr class="p-1">
+
+<div class="row m-3">
+    <div class="col">
+        Orignal Value : {{students}}
+        <br>
+        After Pipe : {{students | json}}
+    </div>
+    <div class="col">
+        Orignal Value : {{currDate}}
+        <br>
+        After Pipe : {{currDate | date}}
+    </div>
+    <div class="col">
+        Orignal Value : {{currDate}}
+        <br>
+        After Pipe : {{currDate | date: 'dd-mm-yy'}}
+    </div>
+    <div class="col">
+        Orignal Value : {{currDate}}
+        <br>
+        After Pipe : {{currDate | date: 'dd-MMM-Y'}}
+    </div>
+</div>
+<hr class="p-1">
+
+<div class="row m-3">
+    <div class="col">
+        Orignal Value : {{currTime}}
+        <br>
+        <!-- After Pipe : {{currTime | async}} -->
+    </div>
+    <div class="col">
+        <ul>
+            <li *ngFor="let c of students">Orignal Value : {{c.age}}</li>
+        </ul>
+        <br>
+        <ul>
+            <li *ngFor="let c of students">After Pipe : {{c.age | na:2:5}}</li>
+        </ul>
+    </div>
+</div>

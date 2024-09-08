@@ -1,0 +1,105 @@
+<h1 class="text-center bg-warning-custom py-3">Assignment 1</h1>
+<button class="btn btn-danger" [routerLink]="['/structural']">Click to Tansfer To Structural Directive</button>
+<!-- Employee Salary List -->
+<div class="container container-custom mt-5">
+    <h2 class="mb-4">Employee Salary List</h2>
+    <table class="table table-bordered table-striped table-striped-employee">
+        <thead class="table-header-employee">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Salary</th>
+                <th>HRA</th>
+                <th>MA</th>
+                <th>TA</th>
+                <th>PF</th>
+                <th>GP</th>
+                <th>NP</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let emp of employee">
+                <td>{{ emp.id }}</td>
+                <td>{{ emp.name }}</td>
+                <td>{{ emp.salary }}</td>
+                <td>{{ emp.hra }}</td>
+                <td>{{ emp.ma }}</td>
+                <td>{{ emp.ta }}</td>
+                <td>{{ emp.pf }}</td>
+                <td>{{ emp.gp }}</td>
+                <td>{{ emp.np }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- Product Details -->
+<div class="container container-custom mt-5">
+    <h2 class="mb-4">Product Details</h2>
+    <table class="table table-bordered table-striped table-striped-product">
+        <thead class="table-header-product">
+            <tr>
+                <th>Product Name</th>
+                <th>Product ID</th>
+                <th>Quantity</th>
+                <th>Rate</th>
+                <th>Amount</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let product of product">
+                <td>{{ product.pname }}</td>
+                <td>{{ product.pid }}</td>
+                <td>{{ product.qty }}</td>
+                <td>{{ product.rate }}</td>
+                <td>{{ product.amount }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- Transaction List -->
+<div class="container container-custom mt-5">
+    <h2 class="mb-4">Transaction List</h2>
+    <table class="table table-bordered table-striped table-striped-transaction">
+        <thead class="table-header-transaction">
+            <tr>
+                <th>Customer Name</th>
+                <th>Account Number</th>
+                <th>Transaction Type</th>
+                <th>Date</th>
+                <th>Amount</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let transaction of transaction">
+                <td>{{ transaction.cname }}</td>
+                <td>{{ transaction.accno }}</td>
+                <td>{{ transaction.ttype }}</td>
+                <td>{{ transaction.tdate }}</td>
+                <td>{{ transaction.amount | currency }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- Departments -->
+<div class="container container-custom mt-5">
+    <h2 class="mb-4">Departments</h2>
+    <table class="table table-bordered table-striped table-striped-department">
+        <thead class="table-header-department">
+            <tr>
+                <th>Department Number</th>
+                <th>Department Name</th>
+                <th>Location</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let department of department">
+                <td>{{ department.deptno }}</td>
+                <td>{{ department.dname }}</td>
+                <td>{{ department.loc }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

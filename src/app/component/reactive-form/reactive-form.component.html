@@ -1,0 +1,59 @@
+<h1 class="bg-dark text-white p-4 text-center">Reactive-Form</h1>
+
+<div class="container mt-5 p-5">
+    <form class="row g-3" [formGroup]="studentForm">
+        <div class="col-md-4">
+            <label for="validationDefault01" class="form-label">First name</label>
+            <input type="text" class="form-control" id="validationDefault01" formControlName="fname" required>
+            @if (studentForm.controls['fname'].touched && (studentForm.controls['fname'].errors?.['required'] || studentForm.controls['fname'].errors?.['minlength'])) {
+                <div class="text-danger">Error</div>
+            }
+        </div>
+        <div class="col-md-4">
+            <label for="validationDefault02" class="form-label">Last name</label>
+            <input type="text" class="form-control" id="validationDefault02" formControlName="lname" required>
+        </div>
+        <div class="col-md-4">
+            <label for="validationDefaultUsername" class="form-label">Username</label>
+            <div class="input-group">
+                <span class="input-group-text" id="inputGroupPrepend2">&#64;</span>
+                <input type="text" class="form-control" id="validationDefaultUsername" aria-describedby="inputGroupPrepend2" formControlName="user" required>
+                @if (studentForm.controls['user'].touched && (studentForm.controls['user'].errors?.['required'] || studentForm.controls['user'].errors?.['email'])) {
+                    <div class="text-danger">Error</div>
+                }
+            </div>
+        </div>
+        <div class="col-md-6">
+            <label for="validationDefault03" class="form-label">City</label>
+            <input type="text" class="form-control" id="validationDefault03" formControlName="city" required>
+        </div>
+        <div class="col-md-3">
+            <label for="validationDefault04" class="form-label">State</label>
+            <select class="form-select" id="validationDefault04" formControlName="state" required>
+                <option selected disabled value="">Choose...</option>
+                <option>Argentina</option>
+                <option>Jammu and Kashmir</option>
+                <option>Haryana</option>
+                <option>Delhi</option>
+            </select>
+        </div>
+        <div class="col-md-3">
+            <label for="validationDefault05" class="form-label">Zip</label>
+            <input type="text" class="form-control" id="validationDefault05" formControlName="zip" required>
+        </div>
+        <div class="col-12">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" formControlName="isAccept" required>
+                <label class="form-check-label" for="invalidCheck2">
+                Agree to terms and conditions
+                </label>
+            </div>
+        </div>
+        <div class="col-12">
+            <button class="btn btn-primary" type="submit" [disabled]="studentForm.invalid" (click)="onSave()">Submit form</button>
+        </div>
+        <div class="bg-info">
+            {{formValue | json}}
+        </div>
+    </form>
+</div>

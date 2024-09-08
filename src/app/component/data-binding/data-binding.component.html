@@ -1,0 +1,24 @@
+<p>data-binding works!</p>
+
+<div class="row">
+    <div class="col-4">
+        <div [formGroup]="listBoxForm">
+            <label for="listbox">Select Items:</label>
+            <select id="listbox" formControlName="selectedItems" multiple>
+              <option *ngFor="let item of items" [value]="item">{{ item }}</option>
+            </select>
+        </div>
+        <div>
+            <h3>Selected Items:</h3>
+            <ul>
+              <li *ngFor="let selectedItem of selectedItems">{{ selectedItem }}</li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-4">
+    </div>
+    <div class="col-4">
+    </div>
+</div>
+<br />
+<button class="btn btn-danger" (click)="transfertoStu()">Click to Tansfer To Structural Directive</button>

@@ -1,0 +1,129 @@
+<p>control statement works!</p>
+<!-- IF ELSEIF ELSE -->
+<div class="row">
+    <div class="col-3">
+        @if (isVisible) {
+            <div  class="bg-secondary text-center p-3">
+                Hello 1
+            </div>
+        }
+        <div class="text-center m-3">
+            <div class="btn btn-primary m-2 p-2" (click)="showDiv()">Show</div>
+            <div class="btn btn-success m-2 p-2" (click)="hideDiv()">Hide</div>
+        </div>
+    </div>
+    <div class="col-3">
+        @if (isVis) {
+            <div  class="bg-primary text-center p-3">
+                Hello 2
+            </div>
+        }@else {
+            <div  class="bg-secondary text-center p-3">
+                Hello 2
+            </div>
+        }
+        <div class="text-center m-3">
+            <div class="btn btn-success m-2 p-2" (click)="toggleDiv()">Toggle</div>
+        </div>
+    </div>
+    <div class="col-3">
+        @if (num1==num2) {
+            <div  class="bg-warning text-center p-3">
+                Hello 3
+            </div>
+        }
+        <div class="text-center m-3">
+            <input type="number" name="number" id="number" [(ngModel)]="num1" placeholder="Number1">
+            <input type="number" name="number" id="number" [(ngModel)]="num2" placeholder="Number1">
+        </div>
+    </div>
+    <div class="col-3">
+        @if (texting) {
+            <div  class="bg-success text-center p-3">
+                {{texting}}
+            </div>
+        }
+        
+        <div class="text-center m-2 p-2">
+            <select name="select" id="select" [(ngModel)]="texting">
+                <option value="Active">Active</option>
+                <option value="Invalid">Invalid</option>
+                <option value="Valid">Valid</option>
+            </select>
+        </div>
+    </div>
+</div>
+
+<!-- FOR SWITCH -->
+<div class="row">
+    <div class="col-2">
+        <h3>City Names</h3>
+        <ul>
+            @for (item of city; track $index) {
+                <li>{{item}}</li>
+            }
+        </ul>
+    </div>
+    <div class="col-2">
+        <h3>City Names</h3>
+        <select>
+            @for (item of city; track $index) {
+                <option value="{{item}}">{{item}}</option>
+            }
+        </select>
+    </div>
+    <div class="col-7">
+        <h3>Student Details</h3>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <td>ID</td>
+                    <td>Name</td>
+                    <td>Age</td>
+                    <td>Email</td>
+                    <td>Course</td>
+                    <td>IsEnrolled</td>
+                </tr>
+            </thead>
+            <tbody>
+                @for (item of students; track $index) {
+                    <tr>
+                        <td>{{$index + 1}}</td>
+                        <td>{{item.name}}</td>
+                        <td>{{item.age}}</td>
+                        <td>{{item.email}}</td>
+                        <td>
+                            <ul class="m-0">
+                                @for (c of item.courses; track $index) {
+                                    <li>{{c}}</li>
+                                }
+                            </ul>
+                        </td>
+                        @if (item.isEnrolled) { <td>True</td> }
+                        @else { <td>False</td> }
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+<h3 class="text-center">SWITCH Case</h3>
+<div class="row mb-5">
+    <div class="col text-end">
+        <input type="number" name="text" id="text" [(ngModel)]="dayNumber">
+    </div>
+    <div class="col">
+        <h3>
+            @switch (dayNumber) {
+                @case (1) {Monday}
+                @case (2) {Tuesday}
+                @case (3) {Wednsday}
+                @case (4) {Thursday}
+                @case (5) {Friday}
+                @case (6) {Saturday}
+                @case (7) {Sunday}
+                @default {Wrong Number}
+            }
+        </h3>
+    </div>
+</div>
