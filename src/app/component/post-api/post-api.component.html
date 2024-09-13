@@ -1,0 +1,35 @@
+<h1 class="bg-danger-subtle text-center p-3 mb-5">post-api works!</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-8">
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <td>Sno</td>
+                <td>Name</td>
+                <td>Logo</td>
+            </tr>
+            </thead>
+            <tbody>
+                @for (item of deptlist; track $index) {
+                    <tr>
+                        <td>{{ $index + 1 }}</td>
+                        <td>{{ item.dname }}</td>
+                        <td>{{ item.dlogo }}</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        </div>
+        <div class="col-4">
+        <div class="row">
+            <input class="form-control mb-1" type="text" placeholder="Enter Dept Name" [(ngModel)]="deptmentObj.dname" />
+            <input class="form-control mb-3" type="text" placeholder="Image Url" [(ngModel)]="deptmentObj.dlogo" />
+        </div>
+        <div class="text-center">
+            <button class="btn btn-warning me-3" type="button" (click)="onSave()">Submit</button>
+            <button class="btn btn-primary" type="reset" (click)="resetForm()">Reset</button>    
+        </div>
+        </div>
+    </div>
+</div>
